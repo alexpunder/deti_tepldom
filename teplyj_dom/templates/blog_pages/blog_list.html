@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<!--==============================
+Breadcumb
+============================== -->
+<div class="breadcumb-wrapper " data-bg-src="{% static "img/breadcumb/breadcumb-bg.jpg" %}">
+    <div class="container z-index-common">
+        <div class="breadcumb-content">
+            <div class="breadcumb-menu-wrap">
+                <ul class="breadcumb-menu">
+                    <li><a href="{% url 'schooling:index' %}">Главная</a></li>
+                    <li>Новости</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--==============================
+Blog Area
+==============================-->
+<section class="vs-blog-wrapper space-top space-extra-bottom">
+    <div class="container">
+        <div class="row gx-40">
+            <div class="col-lg-8">
+                <div class="vs-blog blog-single has-post-thumbnail">
+                    <div class="blog-img">
+                        <a href="{% url 'blog:blog_details' %}"><img src="{% static "img/blog/blog-single-1-1.jpg" %}" alt="Blog Image"></a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <a href="{% url 'blog:blog_details' %}"><i class="far fa-calendar-alt"></i>Июль 8, 2024</a>
+                        </div>
+                        <h2 class="blog-title"><a href="{% url 'blog:blog_details' %}">Всероссийский день семьи, любви и верности</a></h2>
+                        <p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do eiusmod tempor incididunt ut la bore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do eiusmod tempor incididunt ut la bore et dolore magna aliqua.</p>
+                        <a href="{% url 'blog:blog_details' %}" class="vs-btn style2">Подробнее</a>
+                    </div>
+                </div>
+                <div class="vs-blog blog-single has-post-thumbnail">
+                    <div class="blog-img vs-carousel" data-arrows="true" data-slide-show="1" data-fade="true">
+                        <a href="{% url 'blog:blog_details' %}"><img src="{% static "img/blog/blog-single-1-2.jpg" %}" alt="Blog Image"></a>
+                        <a href="{% url 'blog:blog_details' %}"><img src="{% static "img/blog/blog-single-1-3.jpg" %}" alt="Blog Image"></a>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <a href="{% url 'blog:blog_details' %}"><i class="far fa-calendar-alt"></i>Март 28, 2024</a>
+                        </div>
+                        <h2 class="blog-title"><a href="{% url 'blog:blog_details' %}">День матери</a></h2>
+                        <p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do eiusmod tempor incididunt ut la bore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do eiusmod tempor incididunt ut la bore et dolore magna aliqua.</p>
+                        <a href="{% url 'blog:blog_details' %}" class="vs-btn style2">Подробнее</a>
+                    </div>
+                </div>
+                <div class="vs-blog blog-single">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <a href="{% url 'blog:blog_details' %}"><i class="far fa-calendar-alt"></i>Декабрь 30, 2023</a>
+                        </div>
+                        <h2 class="blog-title"><a href="blog-details.html">Новогодний калейдоскоп</a></h2>
+                        <p class="blog-text">Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do eiusmod tempor incididunt ut la bore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipisc ing elit, sed do eiusmod tempor incididunt ut la bore et dolore magna aliqua.</p>
+                        <a href="{% url 'blog:blog_details' %}" class="vs-btn style2">Подробнее</a>
+                    </div>
+                </div>
+                <div class="vs-pagination  ">
+                    <a href="#" class="pagi-btn">Предыдущая</a>
+                    <ul>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">...</a></li>
+                        <li><a href="#">12</a></li>
+                    </ul>
+                    <a href="#" class="pagi-btn">Следующая</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside class="sidebar-area">
+                    <div class="widget widget_search   ">
+                        <h3 class="widget_title">Поиск</h3>
+                        <form class="search-form">
+                            <input type="text" placeholder="Введите для поиска">
+                            <button type="submit"><i class="far fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="widget  ">
+                        <h3 class="widget_title">Последние новости</h3>
+                        <div class="recent-post-wrap">
+                            <div class="recent-post">
+                                <div class="media-img">
+                                    <a href="blog-details.html"><img src="{% static "img/blog/recent-post-1-3.jpg" %}" alt="Blog Image"></a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="recent-post-meta">
+                                        <a href="blog.html"><i class="far fa-calendar-alt"></i>Июль 8, 2024</a>
+                                    </div>
+                                    <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Всероссийский день семьи, любви и верности</a></h4>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="media-img">
+                                    <a href="blog-details.html"><img src="{% static "img/blog/recent-post-1-2.jpg" %}" alt="Blog Image"></a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="recent-post-meta">
+                                        <a href="blog.html"><i class="far fa-calendar-alt"></i>Март 28, 2024</a>
+                                    </div>
+                                    <h4 class="post-title"><a class="text-inherit" href="blog-details.html">День матери</a></h4>
+                                </div>
+                            </div>
+                            <div class="recent-post">
+                                <div class="media-img">
+                                    <a href="blog-details.html"><img src="{% static "img/blog/recent-post-1-1.jpg" %}" alt="Blog Image"></a>
+                                </div>
+                                <div class="media-body">
+                                    <div class="recent-post-meta">
+                                        <a href="blog.html"><i class="far fa-calendar-alt"></i>Декабрь 30, 2023</a>
+                                    </div>
+                                    <h4 class="post-title"><a class="text-inherit" href="blog-details.html">Новогодний калейдоскоп</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget widget_categories   ">
+                        <h3 class="widget_title">Категории</h3>
+                        <ul>
+                            <li>
+                                <a href="blog.html">Клубничный рай</a>
+                            </li>
+                            <li>
+                                <a href="blog.html">Твой ориентир</a>
+                            </li>
+                            <li>
+                                <a href="blog.html">Новая семья, новая жизнь</a>
+                            </li>
+                            <li>
+                                <a href="blog.html">Секреты семейного очага</a>
+                            </li>
+                            <li>
+                                <a href="blog.html">Клубничный бизнес</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget  ">
+                        <h4 class="widget_title">Наша галерея</h4>
+                        <div class="sidebar-gallery">
+                            <div class="gallery-thumb">
+                                <img src="{% static "img/widget/gal-1-1.jpg" %}" alt="Gallery Image" class="w-100">
+                                <a href="{% static "img/widget/gal-1-1.jpg" %}" class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
+                            </div>
+                            <div class="gallery-thumb">
+                                <img src="{% static "img/widget/gal-1-2.jpg" %}" alt="Gallery Image" class="w-100">
+                                <a href="{% static "img/widget/gal-1-2.jpg" %}" class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
+                            </div>
+                            <div class="gallery-thumb">
+                                <img src="{% static "img/widget/gal-1-3.jpg" %}" alt="Gallery Image" class="w-100">
+                                <a href="{% static "img/widget/gal-1-3.jpg" %}" class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
+                            </div>
+                            <div class="gallery-thumb">
+                                <img src="{% static "img/widget/gal-1-4.jpg" %}" alt="Gallery Image" class="w-100">
+                                <a href="{% static "img/widget/gal-1-4.jpg" %}" class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
+                            </div>
+                            <div class="gallery-thumb">
+                                <img src="{% static "img/widget/gal-1-5.jpg" %}" alt="Gallery Image" class="w-100">
+                                <a href="{% static "img/widget/gal-1-5.jpg" %}" class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
+                            </div>
+                            <div class="gallery-thumb">
+                                <img src="{% static "img/widget/gal-1-6.jpg" %}" alt="Gallery Image" class="w-100">
+                                <a href="{% static "img/widget/gal-1-6.jpg" %}" class="popup-image gal-btn"><i class="fal fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

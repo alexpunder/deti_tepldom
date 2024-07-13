@@ -1,0 +1,76 @@
+{% load static %}
+
+<header class="vs-header header-layout2">
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col col-sm-auto">
+                    <div class="header-logo">
+                        <a href="{% url "schooling:index" %}">
+                            <img src="{% static "/img/logo.png" %}" alt="logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-auto d-none d-lg-block">
+                    <div class="header-links style3 style-white">
+                        <ul>
+                            <li class="d-none d-xl-inline-block"><i class="fas fa-envelope"></i><a href="mailto:deti-tepldom@mail.ru">Почта: deti-tepldom@mail.ru</a></li>
+                            <li><i class="fas fa-mobile-alt"></i><a href="tel:+79616956875">Телефон: +7 (961) 695–68–75</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row align-items-center justify-content-end gx-3">
+                        <div class="col-auto d-none d-lg-block">
+                            <div class="header-icons">
+                                <button class="simple-icon style2 sideMenuToggler"><i class="far fa-bars"></i></button>
+                            </div>
+                        </div>
+                        <div class="col-auto ">
+                            <a href="#" class="vs-btn sideMenuToggler">Расписание</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="menu-area">
+            <div class="row justify-content-between align-items-center">
+                <div class="col">
+                    <nav class="main-menu menu-style2 d-none d-lg-block">
+                        <ul>
+                            <li>
+                                <a href="{% url "schooling:index" %}">Главная</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="about.html">О нас</a>
+                                <ul class="sub-menu">
+                                    <li><a href="class.html">Услуги</a></li>
+                                    <li><a href="class-2.html">Команда</a></li>
+                                    <li><a href="class-details.html">Документы</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="match.html">Занятия</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Проекты</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'blog:blog_list' %}">Новости</a>
+                            </li>
+                            <li>
+                                <a href="#">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
+                </div>
+                <div class="col-auto">
+                    <button class="simple-icon searchBoxTggler"><i class="far fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
