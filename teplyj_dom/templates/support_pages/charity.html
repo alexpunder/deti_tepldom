@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="breadcumb-wrapper " data-bg-src="{% static "img/breadcumb/breadcumb-bg.jpg" %}">
+    <div class="container z-index-common">
+        <div class="breadcumb-content">
+            <div class="breadcumb-menu-wrap">
+                <ul class="breadcumb-menu">
+                    <li><a href="{% url 'schooling:index' %}">Главная</a></li>
+                    <li>Поддержка</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

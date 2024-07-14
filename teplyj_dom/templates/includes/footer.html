@@ -14,10 +14,10 @@
                 <div class="col-lg-4">
                     <div class="widget footer-widget">
                         <div class="widget-about">
-                            <h3 class="mt-n2">АНО «Теплый дом»</h3>
                             <p class="map-link"><img src="{% static "img/icon/map.svg" %}" alt="svg">404121, Волгоградская обл., г. Волжский, ул. Машиностроителей, 9Б</p>
                             <p class="map-link"><img src="{% static "img/icon/map.svg" %}" alt="svg">404120, Волгоградская обл., г. Волжский, ул. Королева, 3А</p>
                             <p class="map-link"><img src="{% static "img/icon/map.svg" %}" alt="svg">404120, Волгоградская обл., г. Волжский, пр. Ленина, 123</p>
+                            <p class="map-link"><img src="{% static "img/icon/map.svg" %}" alt="svg">404133, Волгоградская обл., г. Волжский, пр. Ленина, 341</p>
                         </div>
                     </div>
                 </div>
@@ -64,9 +64,30 @@
                     </div>
                 </div>
                 <div class="col-lg-auto">
-                    <p class="copyright-text text-white"><a href="{% url "schooling:index" %}">АНО «Теплый дом»  &copy;  2024 </a>
+                    <p class="copyright-text text-white"><i id="copy" class="fa fa-link"></i>&nbsp;&nbsp;&nbsp;<a id="help" href="{% url "support:charity" %}">Вы можете нам помочь</a></p>
+                </div>
+                <div class="col-lg-auto">
+                    <p class="copyright-text text-white"><a href="{% url "schooling:index" %}">АНО «Теплый дом»  &copy;  2024 </a></p>
                 </div>
             </div>
         </div>
     </div>
 </footer>
+
+<script>
+    function copy() {
+      let copyText = document.querySelector("#help").href;
+
+      let tempInput = document.createElement("input");
+      tempInput.value = copyText;
+      document.body.appendChild(tempInput);
+
+      tempInput.select();
+      document.execCommand("copy");
+
+      document.body.removeChild(tempInput);
+
+    }
+
+    document.querySelector("#copy").addEventListener("click", copy);
+</script>

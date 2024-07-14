@@ -1,5 +1,13 @@
 {% load static %}
 
+<style>
+    @media (max-width: 992px) {
+        .searchBoxTggler {
+            display: none;
+        }
+    }
+</style>
+
 <header class="vs-header header-layout2">
     <div class="header-top">
         <div class="container">
@@ -27,7 +35,7 @@
                             </div>
                         </div>
                         <div class="col-auto ">
-                            <a href="#" class="vs-btn sideMenuToggler">Расписание</a>
+                            <a href="{% url 'support:faq' %}" class="vs-btn">Получение услуг</a>
                         </div>
                     </div>
                 </div>
@@ -43,25 +51,20 @@
                             <li>
                                 <a href="{% url "schooling:index" %}">Главная</a>
                             </li>
-                            <li class="menu-item-has-children">
-                                <a href="about.html">О нас</a>
-                                <ul class="sub-menu">
-                                    <li><a href="class.html">Услуги</a></li>
-                                    <li><a href="class-2.html">Команда</a></li>
-                                    <li><a href="class-details.html">Документы</a></li>
-                                </ul>
+                            <li>
+                                <a href="{% url 'support:about' %}">О нас</a>
                             </li>
                             <li>
-                                <a href="match.html">Занятия</a>
-                            </li>
-                            <li>
-                                <a href="contact.html">Проекты</a>
+                                <a href="{% url 'schooling:projects' %}">Проекты</a>
                             </li>
                             <li>
                                 <a href="{% url 'blog:blog_list' %}">Новости</a>
                             </li>
                             <li>
-                                <a href="#">Контакты</a>
+                                <a href="{% url 'support:contacts' %}">Контакты</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'support:usefull_links' %}">Полезные ссылки</a>
                             </li>
                         </ul>
                     </nav>

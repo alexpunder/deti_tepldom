@@ -6,5 +6,6 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('schooling.urls')),
+    path('', include('support_pages.urls')),
     path('blog', include('blog.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
