@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+from schooling.forms import SendQuestionForm
 from .models import AboutItem, OurTeam
 
 
@@ -38,9 +39,21 @@ def usefull_links(request):
 
 
 def contacts(request):
+    form = SendQuestionForm()
+    if request.method == 'POST':
+        form = SendQuestionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(
+                request,
+                'scholling_pages/success.html'
+            )
     return render(
         request,
-        'support_pages/contacts.html'
+        'support_pages/contacts.html',
+        context={
+            'form': form
+        }
     )
 
 

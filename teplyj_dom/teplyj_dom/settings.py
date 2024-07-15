@@ -29,6 +29,11 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'schooling.apps.SchoolingConfig',
     'support_pages.apps.SupportPagesConfig',
+
+    # utils
+    'django_prose_editor',
+    'phonenumber_field',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

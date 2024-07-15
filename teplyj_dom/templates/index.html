@@ -212,28 +212,35 @@
                         </div>
                     </div>
                 </div>
-                <form action="#" class="form-style3">
+                <form method="post" action="{% url 'support:contacts' %}" class="form-style3">
                     <div class="row justify-content-between">
-                        <div class="col-md-6 form-group">
-                            <label>Ваше имя <span class="required">(Обязательно)</span></label>
-                            <input type="text">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Телефон <span class="required">(Обязательно)</span></label>
-                            <input type="phone">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Тема</label>
-                            <input type="text">
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label>Почта <span class="required">(Обязательно)</span></label>
-                            <input type="email">
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label>Обращения <span class="required">(Обязательно)</span></label>
-                            <textarea class="form-control"></textarea>
-                        </div>
+                        {% comment %}
+                            <div class="col-md-6 form-group">
+                                <label>Ваше имя <span class="required">(Обязательно)</span></label>
+                                <input type="text">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Телефон <span class="required">(Обязательно)</span></label>
+                                <input type="phone">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Тема</label>
+                                <input type="text">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label>Почта <span class="required">(Обязательно)</span></label>
+                                <input type="email">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <label>Обращения <span class="required">(Обязательно)</span></label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        {% endcomment %}
+
+                        {% csrf_token %}
+
+                        {{ form.as_p }}
+
                         <div class="col-auto align-self-center form-group">
                             <input type="checkbox" id="notice" name="notice" onchange="document.getElementById('submitcheck').disabled = !this.checked" />
                             <label for="notice">

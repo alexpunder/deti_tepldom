@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="vs-blog blog-single has-post-thumbnail">
+    <div class="blog-content">
+        <div class="blog-meta">
+            <a href="{% url 'schooling:project_details' item.id %}"><i class="far fa-calendar-alt"></i>
+                {{ item.start_date|date:"Y" }} – {% if item.end_date %}{{ item.end_date|date:"Y" }} года{% else %}По настоящее время{% endif %}
+            </a>
+        </div>
+        <h2 class="blog-title"><a href="{% url 'schooling:project_details' item.id %}">{{ item.title }}</a></h2>
+        <p class="blog-text">{{ item.short_description }}</p>
+        <a href="{% url 'schooling:project_details' item.id %}" class="vs-btn style2">Подробнее</a>
+    </div>
+</div>
