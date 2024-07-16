@@ -43,8 +43,8 @@ def projects(request):
     )
 
 
-def project_details(request, project_id):
-    project = get_object_or_404(Project, id=project_id)
+def project_details(request, project_slug):
+    project = get_object_or_404(Project, slug=project_slug)
     project_images = project.images.all()
     return render(
         request,

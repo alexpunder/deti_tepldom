@@ -17,6 +17,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display_links = (
         'title', 'start_date', 'end_date',
     )
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(SendQuestion)

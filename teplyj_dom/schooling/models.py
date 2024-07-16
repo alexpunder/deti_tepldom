@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.text import slugify
 from phonenumber_field.modelfields import PhoneNumberField
 from django_prose_editor.fields import ProseEditorField
 
@@ -55,6 +55,11 @@ class Project(models.Model):
         max_length=255,
         verbose_name='Заголовок',
     )
+    slug = models.SlugField(
+        unique=True,
+        verbose_name='Идентификатор URL',
+        help_text='Автоматически заполняемое поле. Не вносить изменения.',
+    )
     short_description = ProseEditorField(
         verbose_name='Краткое описание',
         help_text='Основные тезисы проекта, цели и краткая информация.',
@@ -75,6 +80,11 @@ class Project(models.Model):
 
     def __str__(self):
         return f'Проект №{self.id}'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class ProjectImage(models.Model):
