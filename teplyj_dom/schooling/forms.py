@@ -7,4 +7,4 @@ class SendQuestionForm(ModelForm):
 
     class Meta:
         model = SendQuestion
-        exclude = ('id',)
+        exclude = ('id', 'is_complete',)

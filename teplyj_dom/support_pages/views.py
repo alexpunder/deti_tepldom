@@ -1,13 +1,19 @@
 from django.shortcuts import render
 
 from schooling.forms import SendQuestionForm
-from .models import AboutItem, OurTeam
+from .models import (
+    AboutItem, OurTeam, Document, UsefullLink, MassMedia, Charity,
+)
 
 
 def charity(request):
+    charity_data = Charity.objects.all()
     return render(
         request,
-        'support_pages/charity.html'
+        'support_pages/charity.html',
+        context={
+            'charity_data': charity_data,
+        }
     )
 
 
@@ -29,12 +35,34 @@ def about(request):
     )
 
 
+def documents(request):
+    documents = Document.objects.all()
+    return render(
+        request,
+        'support_pages/documents.html',
+        context={
+            'documents': documents,
+        }
+    )
+
+
 def usefull_links(request):
-    usefull_links = range(10)
+    usefull_links = UsefullLink.objects.all()
     return render(
         request,
         'support_pages/usefull_links.html',
         context={'usefull_links': usefull_links}
+    )
+
+
+def mass_media(request):
+    mass_media = MassMedia.objects.all()
+    return render(
+        request,
+        'support_pages/mass_media.html',
+        context={
+            'mass_media': mass_media,
+        }
     )
 
 
@@ -63,4 +91,12 @@ def team(request):
         request,
         'support_pages/team.html',
         context={'teammates': teammates}
+    )
+
+
+def page_not_found(request, exception):
+    return render(
+        request,
+        'support_pages/404.html',
+        status=404
     )

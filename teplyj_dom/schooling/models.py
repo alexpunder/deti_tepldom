@@ -1,16 +1,27 @@
 from django.db import models
 
 from phonenumber_field.modelfields import PhoneNumberField
+from django_prose_editor.fields import ProseEditorField
 
 
 class SendQuestion(models.Model):
+    is_complete = models.CharField(
+        max_length=255,
+        default='Нет',
+        choices=(('Да', 'Да'), ('Нет', 'Нет')),
+        verbose_name='Обработан?',
+        help_text='Если заявка обработа, выберите "Да".',
+    )
     name = models.CharField(
         max_length=255,
         verbose_name='Имя',
     )
-    phone = PhoneNumberField()
+    phone = PhoneNumberField(
+        verbose_name='Телефон',
+    )
     subject = models.CharField(
         max_length=255,
+        default='',
         verbose_name='Тема',
     )
     email = models.EmailField(
@@ -44,17 +55,18 @@ class Project(models.Model):
         max_length=255,
         verbose_name='Заголовок',
     )
-    short_description = models.TextField(
+    short_description = ProseEditorField(
         verbose_name='Краткое описание',
-        help_text='Небольшое количество текста.',
+        help_text='Основные тезисы проекта, цели и краткая информация.',
     )
-    text = models.TextField(
+    text = ProseEditorField(
         verbose_name='Текст',
         help_text='Основной текст с полным описанием.',
     )
-    image = models.ImageField(
-        upload_to='project_images',
-        verbose_name='Изображение',
+    main_image = models.ImageField(
+        upload_to='main_projects_images',
+        verbose_name='Титульное изображение',
+        help_text='Изображение-обложка для страницы проекта.',
     )
 
     class Meta:
@@ -63,3 +75,38 @@ class Project(models.Model):
 
     def __str__(self):
         return f'Проект №{self.id}'
+
+
+class ProjectImage(models.Model):
+    project = models.ForeignKey(
+        'Project',
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='images',
+        verbose_name='Проект',
+    )
+    image = models.ImageField(
+        upload_to='project_images',
+        verbose_name='Изображение',
+    )
+
+    class Meta:
+        verbose_name = 'Изображения проекта'
+        verbose_name_plural = 'Изображения проектов'
+
+    def __str__(self):
+        return f'Изображение проекта №{self.id}'
+
+
+class MainGallery(models.Model):
+    image = models.ImageField(
+        upload_to='main_gallery',
+        verbose_name='Изображение на главной',
+    )
+
+    class Meta:
+        verbose_name = 'Изображение на главной'
+        verbose_name_plural = 'Изображения на главной'
+
+    def __str__(self):
+        return f'Изображение на главной №{self.id}'

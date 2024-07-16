@@ -29,8 +29,10 @@
         <div class="row gx-40">
             <div class="col-lg-12">
                 <div class="vs-blog blog-single">
-                    <div class="blog-img">
-                        <img src="{% static "img/blog/blog-single-1-1.jpg" %}" alt="Blog Image">
+                    <div class="img-box7">
+                        <div class="mega-hover">
+                            <img src="{{ project.main_image.url }}" alt="Blog Image">
+                        </div>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -40,10 +42,22 @@
                             </span>
                         </div>
                         <h2 class="blog-title">{{ project.title }}</h2>
-                        <p>{{ project.text }}</p>
+                        <p>{{ project.text|safe }}</p>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row gx-35 gy-gx filter-active">
+            {% for product_image in project_images %}
+            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
+                <div class="gallery-style1">
+                    <div class="gallery-img">
+                        <img src="{{ product_image.image.url }}" alt="gallery">
+                        <a href="{{ product_image.image.url }}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

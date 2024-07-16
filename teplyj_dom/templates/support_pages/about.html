@@ -15,12 +15,6 @@
         <div class="breadcumb-content">
             <h1 class="breadcumb-title">О нас</h1>
             <p class="breadcumb-text">На странице представлена краткая правовая информация.</p>
-            <div class="breadcumb-menu-wrap">
-                <ul class="breadcumb-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li>О нас</li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
@@ -48,12 +42,22 @@
                     <tr>
                         <th class="cart-col-productname">Номер по порядку</th>
                         <th class="cart-col-productname">Индикаторы</th>
-                        <th class="cart-col-price">Информацция</th>
+                        <th class="cart-col-price">Информация</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for item in table_items %}
-                        {% include "includes/about_table_item.html" %}
+                    <tr class="cart_item">
+                        <td data-title="Product">
+                            <a class="cart-productname">{{ forloop.counter }}</a>
+                        </td>
+                        <td data-title="Name">
+                            <a class="cart-productname">{{ item.indicator|safe }}</a>
+                        </td>
+                        <td data-title="Price">
+                            <a class="cart-productname">{{ item.info|safe }}</a>
+                        </td>
+                    </tr>
                     {% endfor %}
                 </tbody>
             </table>

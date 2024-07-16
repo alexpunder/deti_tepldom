@@ -15,24 +15,39 @@
         <div class="breadcumb-content">
             <h1 class="breadcumb-title">Полезные ссылки</h1>
             <p class="breadcumb-text">Здесь Вы найдете важные социальные ресурсы и удобный способ перехода по ним.</p>
-            <div class="breadcumb-menu-wrap">
-                <ul class="breadcumb-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li>Полезные ссылки</li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
 
-<section class=" space-top space-bottom">
+<div class="vs-cart-wrapper space space-extra-bottom">
     <div class="container">
-        <div class="row vs-carousel gx-10" data-slide-show="5" data-ml-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2">
-            {% for usefull_link in usefull_links %}
-                {% include "includes/usefull_link.html" %}
-            {% endfor %}
+        <div class="woocommerce-cart-form">
+            <table class="cart_table">
+                <thead>
+                    <tr>
+                        <th class="cart-col-productname">Номер по порядку</th>
+                        <th class="cart-col-productname">Ресурс</th>
+                        <th class="cart-col-price">Ссылка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usefull_link in usefull_links %}
+                    <tr class="cart_item">
+                        <td data-title="Product">
+                            <a class="cart-productname">{{ forloop.counter }}</a>
+                        </td>
+                        <td data-title="Name">
+                            <a class="cart-productname">{{ usefull_link.name }}</a>
+                        </td>
+                        <td data-title="Price">
+                            <a class="cart-productname" href={{ usefull_link.link }} target="_blank">{{ usefull_link.link }}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
-</section>
+</div>
 
 {% endblock %}

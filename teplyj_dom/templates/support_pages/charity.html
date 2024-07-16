@@ -12,14 +12,28 @@
 <div class="breadcumb-wrapper ">
     <div class="container z-index-common">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Контакты</h1>
-            <p class="breadcumb-text">Вы всегда знаете, где нас найти.</p>
-            <div class="breadcumb-menu-wrap">
-                <ul class="breadcumb-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li>Контакты</li>
-                </ul>
-            </div>
+            <h1 class="breadcumb-title">Помощь</h1>
+            <p class="breadcumb-text">Полностью на добровольных началах.</p>
+        </div>
+    </div>
+</div>
+
+<div class="vs-cart-wrapper space space-extra-bottom">
+    <div class="container">
+        <div class="woocommerce-cart-form">
+            <table class="cart_table">
+                <thead>
+                    <tr>
+                        <th class="cart-col-productname">Параметр</th>
+                        <th class="cart-col-productname">Значение</th>
+                    </tr>
+                </thead>
+                <tbody class="text-left">
+                    {% for charity in charity_data %}
+                        {% include "includes/charity_rows.html" %}
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

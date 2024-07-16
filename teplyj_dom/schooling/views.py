@@ -1,10 +1,12 @@
 from django.shortcuts import get_object_or_404, render
+from django.views.generic import ListView
 
-from .models import Project
+from .models import Project, MainGallery
 from .forms import SendQuestionForm
 
 
 def index(request):
+    images = MainGallery.objects.all()
     form = SendQuestionForm()
     if request.method == 'POST':
         form = SendQuestionForm(request.POST)
@@ -18,9 +20,16 @@ def index(request):
         request,
         'index.html',
         context={
-            'form': form
+            'form': form,
+            'images': images,
         }
     )
+
+
+class ProjectsListView(ListView):
+    queryset = Project.objects.all()
+    template_name = 'schooling_pages/projects_list.html'
+    paginate_by = 1
 
 
 def projects(request):
@@ -36,10 +45,12 @@ def projects(request):
 
 def project_details(request, project_id):
     project = get_object_or_404(Project, id=project_id)
+    project_images = project.images.all()
     return render(
         request,
         'schooling_pages/project_details.html',
         context={
             'project': project,
+            'project_images': project_images,
         }
     )

@@ -15,12 +15,6 @@
         <div class="breadcumb-content">
             <h1 class="breadcumb-title">Команда</h1>
             <p class="breadcumb-text">Самые увлеченные своим делом люди – вот они!</p>
-            <div class="breadcumb-menu-wrap">
-                <ul class="breadcumb-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li>Команда</li>
-                </ul>
-            </div>
         </div>
     </div>
 </div>
@@ -29,7 +23,18 @@
     <div class="container">
         <div class="row gx-50 ">
             {% for teammate in teammates %}
-                {% include "includes/teammate.html" %}
+            <div class="space-top col-lg-4 align-self-center">
+                <div class="team-about">
+                    <h2 class="team-name">{{ teammate.full_name }}</h2>
+                    <p class="team-degi">{{ teammate.position }}</p>
+                    <h3 class="inner-title">Квалификация / Образование</h3>
+                    <div class="title-divider2"></div>
+                    <p class="team-text">{{ teammate.qualification }}</p>
+                    <h3 class="inner-title">Стаж работы</h3>
+                    <div class="title-divider2"></div>
+                    <p class="team-text">С {{ teammate.experience }} года.</p>
+                </div>
+            </div>
             {% endfor %}
         </div>
     </div>

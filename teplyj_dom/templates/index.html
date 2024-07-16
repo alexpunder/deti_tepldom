@@ -212,7 +212,7 @@
                         </div>
                     </div>
                 </div>
-                <form method="post" action="{% url 'support:contacts' %}" class="form-style3">
+                <form method="post" action="{% url 'schooling:index' %}" class="form-style3">
                     <div class="row justify-content-between">
                         {% comment %}
                             <div class="col-md-6 form-group">
@@ -257,117 +257,39 @@
     </div>
 </section>
 
-<section class=" space space-extra-bottom">
+<style>
+    @media only screen and (max-width: 768px) {
+        .vs-carousel.gal-slider5 {
+            display: none;
+        }
+    }
+</style>
+
+<section class="space space-bottom">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-6">
-                <div class="title-area text-center">
-                    <div class="sec-bubble">
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                    </div>
-                    <h2 class="sec-title">Наша галерея!</h2>
-                </div>
-            </div>
+        <div class="title-area text-center">
+            <h2 class="sec-title">Галерея</h2>
+            <p class="sec-text">Наши будни в фотографиях</p>
         </div>
-        <div class="row gx-35 gy-gx filter-active">
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-2.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-2.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
+        <div class="vs-carousel gal-slider5" data-asnavfor=".gal-slider5-thumb" data-fade="true">
+            {% for image in images %}
+            <div>
+                <div class="img-box7">
+                    <div class="img-1 mega-hover">
+                        <img src="{{ image.image.url }}" alt="about">
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-2.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-2.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
+            {% endfor %}
+        </div>
+        <div class="row vs-carousel gal-slider5-thumb" data-asnavfor=".gal-slider5" data-center-mode="true" data-xl-center-mode="true" data-ml-center-mode="true" data-lg-center-mode="true" data-slide-show="6" data-ml-slide-show="5" data-lg-slide-show="5" data-md-slide-show="4" data-sm-slide-show="2">
+            {% for image in images %}
+            <div class="col-auto">
+                <div class="thumb-style2">
+                    <img src="{{ image.image.url }}" alt="gallery">
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-2.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-2.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-2.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-2.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-4.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-4.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-5.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-5.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item radius-3">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-6.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-6.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item radius-3">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-6.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-6.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item radius-3">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-6.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-6.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item radius-3">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-6.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-6.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item radius-3">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-6.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-6.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-lg-4 col-xl-3 filter-item radius-3">
-                <div class="gallery-style1">
-                    <div class="gallery-img">
-                        <img src="{% static "img/gallery/gal-1-6.jpg" %}" alt="gallery">
-                        <a href="{% static "img/gallery/gal-1-6.jpg" %}" class="gallery-btn popup-image"><i class="far fa-plus"></i></a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>

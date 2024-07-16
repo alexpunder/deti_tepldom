@@ -8,7 +8,7 @@
             </a>
         </div>
         <h2 class="blog-title"><a href="{% url 'schooling:project_details' item.id %}">{{ item.title }}</a></h2>
-        <p class="blog-text">{{ item.short_description }}</p>
+        <p class="blog-text">{{ item.short_description|safe }}</p>
         <a href="{% url 'schooling:project_details' item.id %}" class="vs-btn style2">Подробнее</a>
     </div>
 </div>

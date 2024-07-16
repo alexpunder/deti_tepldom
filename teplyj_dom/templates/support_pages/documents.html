@@ -13,17 +13,41 @@
 <div class="breadcumb-wrapper ">
     <div class="container z-index-common">
         <div class="breadcumb-content">
-            <h1 class="breadcumb-title">Контакты</h1>
-            <p class="breadcumb-text">Вы всегда знаете, где нас найти.</p>
-            <div class="breadcumb-menu-wrap">
-                <ul class="breadcumb-menu">
-                    <li><a href="index.html">Главная</a></li>
-                    <li>Контакты</li>
-                </ul>
-            </div>
+            <h1 class="breadcumb-title">Документы</h1>
+            <p class="breadcumb-text">Ссылки на различную правовую и юридическую информацию.</p>
         </div>
     </div>
 </div>
 
+<div class="vs-cart-wrapper space space-extra-bottom">
+    <div class="container">
+        <div class="woocommerce-cart-form">
+            <table class="cart_table">
+                <thead>
+                    <tr>
+                        <th class="cart-col-productname">Номер по порядку</th>
+                        <th class="cart-col-productname">Документ</th>
+                        <th class="cart-col-price">Ссылка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for document in documents %}
+                    <tr class="cart_item">
+                        <td data-title="Product">
+                            <a class="cart-productname">{{ forloop.counter }}</a>
+                        </td>
+                        <td data-title="Name">
+                            <a class="cart-productname">{{ document.name }}</a>
+                        </td>
+                        <td data-title="Price">
+                            <a class="cart-productname" href={{ document.link }} target="_blank">{{ document.link }}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

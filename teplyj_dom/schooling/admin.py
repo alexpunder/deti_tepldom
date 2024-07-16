@@ -1,13 +1,51 @@
 from django.contrib import admin
 
-from .models import SendQuestion, Project
+from .models import SendQuestion, Project, ProjectImage, MainGallery
 
 
-@admin.register(SendQuestion)
-class SendQuestionAdmin(admin.ModelAdmin):
-    pass
+class ProjectImagesInLine(admin.TabularInline):
+    model = ProjectImage
+    extra = 0
 
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    pass
+    inlines = [ProjectImagesInLine]
+    list_display = (
+        'title', 'start_date', 'end_date',
+    )
+    list_display_links = (
+        'title', 'start_date', 'end_date',
+    )
+
+
+@admin.register(SendQuestion)
+class SendQuestionAdmin(admin.ModelAdmin):
+    list_display = (
+        'is_complete', 'name', 'phone', 'email', 'subject',
+    )
+    list_display_links = (
+        'name', 'phone', 'email',
+    )
+    list_editable = (
+        'is_complete',
+    )
+    search_fields = (
+        'phone', 'email',
+    )
+    list_filter = (
+        'is_complete',
+    )
+    readonly_fields = (
+        'name', 'phone', 'subject', 'email', 'text',
+    )
+
+    def has_add_permission(self, request):
+        return False
+
+
+@admin.register(MainGallery)
+class MainGalleryAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'image',
+    )

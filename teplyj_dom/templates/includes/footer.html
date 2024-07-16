@@ -38,14 +38,16 @@
                         <h3 class="widget_title">Полезные ссылки</h3>
                         <div class="menu-all-pages-container footer-menu">
                             <ul class="menu">
-                                <li><a href="#">СМИ</a></li>
-                                <li><a href="#">Документы</a></li>
-                                <li><a href="#">Вопросы</a></li>
-                                <li><a href="#">Виды услуг</a></li>
-                                <li><a href="#">Команда</a></li>
-                                <li><a href="#">Новости</a></li>
-                                <li><a href="#">Проекты</a></li>
-                                <li><a href="#">Контакты</a></li>
+                                <li><a href="{% url 'support:about' %}">О Нас</a></li>
+                                <li><a href="{% url 'support:usefull_links' %}">Полезные ссылки</a></li>
+                                <li><a href="{% url 'schooling:projects' %}">Проекты</a></li>
+                                <li><a href="{% url 'support:team' %}">Наша команда</a></li>
+                                <li><a href="{% url 'blog:blog_list' %}">Новости</a></li>
+                                <li><a href="{% url 'support:documents' %}">Документы</a></li>
+                                <li><a href="{% url 'support:contacts' %}">Контакты</a></li>
+                                <li><a href="{% url 'support:faq' %}">Вопросы</a></li>
+                                <li><a href="{% url 'support:charity' %}">Помощь</a></li>
+                                <li><a href="{% url 'support:mass_media' %}">СМИ</a></li>
                             </ul>
                         </div>
                     </div>
