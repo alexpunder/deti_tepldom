@@ -19,14 +19,14 @@ class SendQuestion(models.Model):
     phone = PhoneNumberField(
         verbose_name='Телефон',
     )
+    email = models.EmailField(
+        max_length=255,
+        verbose_name='Почта',
+    )
     subject = models.CharField(
         max_length=255,
         default='',
         verbose_name='Тема',
-    )
-    email = models.EmailField(
-        max_length=255,
-        verbose_name='Почта',
     )
     text = models.TextField(
         verbose_name='Текст обращения'

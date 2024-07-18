@@ -1,6 +1,9 @@
+from asgiref.sync import async_to_sync
 from django.shortcuts import render
+from django.contrib import messages
 
 from schooling.forms import SendQuestionForm
+from schooling.utils import send_telegram_message
 from .models import (
     AboutItem, OurTeam, Document, UsefullLink, MassMedia, Charity,
 )
@@ -72,10 +75,22 @@ def contacts(request):
         form = SendQuestionForm(request.POST)
         if form.is_valid():
             form.save()
+            async_to_sync(send_telegram_message)(**form.cleaned_data)
+            messages.success(
+                request,
+                'Обращение отправлено!'
+            )
             return render(
                 request,
-                'scholling_pages/success.html'
+                'schooling_pages/success.html'
             )
+        else:
+            model = form._meta.model
+            for field, errors in form.errors.items():
+                field_verbose_name = model._meta.get_field(field).verbose_name
+                for error in errors:
+                    messages.error(request, f'{field_verbose_name}: {error}')
+
     return render(
         request,
         'support_pages/contacts.html',

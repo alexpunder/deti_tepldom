@@ -58,6 +58,16 @@
 
   {% include "includes/header.html" %}
 
+  {% if messages %}
+    <div>
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} text-center alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
   {% block content %}{% endblock %}
 
   {% include "includes/footer.html" %}

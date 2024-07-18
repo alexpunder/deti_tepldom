@@ -49,20 +49,6 @@
 
 <section class=" space-extra-bottom">
     <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-10 col-xl-9">
-                <div class="title-area">
-                    <div class="sec-bubble">
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                    </div>
-                    <h2 class="sec-title">
-                        Организация социального обслуживания населения
-                    </h2>
-                </div>
-            </div>
-        </div>
         <div class="img-box4">
             <div class="img-1 mega-hover">
                 <img src="{% static "img/about/ab-3-1.jpg" %}" alt="about">
@@ -214,28 +200,6 @@
                 </div>
                 <form method="post" action="{% url 'schooling:index' %}" class="form-style3">
                     <div class="row justify-content-between">
-                        {% comment %}
-                            <div class="col-md-6 form-group">
-                                <label>Ваше имя <span class="required">(Обязательно)</span></label>
-                                <input type="text">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Телефон <span class="required">(Обязательно)</span></label>
-                                <input type="phone">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Тема</label>
-                                <input type="text">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label>Почта <span class="required">(Обязательно)</span></label>
-                                <input type="email">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label>Обращения <span class="required">(Обязательно)</span></label>
-                                <textarea class="form-control"></textarea>
-                            </div>
-                        {% endcomment %}
 
                         {% csrf_token %}
 
