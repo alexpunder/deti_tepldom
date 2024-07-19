@@ -42,13 +42,13 @@
                 <tbody>
                     {% for item in table_items %}
                     <tr class="cart_item">
-                        <td data-title="Product">
+                        <td>
                             <a class="cart-productname">{{ forloop.counter }}</a>
                         </td>
-                        <td data-title="Name">
+                        <td data-title="Индикаторы">
                             <a class="cart-productname">{{ item.indicator|safe }}</a>
                         </td>
-                        <td data-title="Price">
+                        <td data-title="Информация">
                             <a class="cart-productname">{{ item.info|safe }}</a>
                         </td>
                     </tr>

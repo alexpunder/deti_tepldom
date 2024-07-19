@@ -28,14 +28,14 @@
                 <tbody>
                     {% for media in mass_media %}
                     <tr class="cart_item">
-                        <td data-title="Product">
+                        <td>
                             <a class="cart-productname">{{ forloop.counter }}</a>
                         </td>
-                        <td data-title="Name">
+                        <td data-title="Ресурс">
                             <a class="cart-productname">{{ media.name }}</a>
                         </td>
-                        <td data-title="Price">
-                            <a class="cart-productname" href={{ media.link }} target="_blank">{{ media.link }}</a>
+                        <td data-title="Ссылка">
+                            <a class="cart-productname" href={{ media.link }} target="_blank">{{ media.link|truncatechars:30 }}</a>
                         </td>
                     </tr>
                     {% endfor %}

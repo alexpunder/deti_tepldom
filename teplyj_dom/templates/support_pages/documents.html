@@ -27,14 +27,14 @@
                 <tbody>
                     {% for document in documents %}
                     <tr class="cart_item">
-                        <td data-title="Product">
+                        <td>
                             <a class="cart-productname">{{ forloop.counter }}</a>
                         </td>
-                        <td data-title="Name">
+                        <td data-title="Документ">
                             <a class="cart-productname">{{ document.name }}</a>
                         </td>
-                        <td data-title="Price">
-                            <a class="cart-productname" href={{ document.link }} target="_blank">{{ document.link }}</a>
+                        <td data-title="Ссылка">
+                            <a class="cart-productname" href={{ document.link }} target="_blank">{{ document.link|truncatechars:30 }}</a>
                         </td>
                     </tr>
                     {% endfor %}
