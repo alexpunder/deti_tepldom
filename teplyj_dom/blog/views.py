@@ -42,10 +42,10 @@ def blog_list(request):
 
     else:
         blogs = Blog.objects.order_by(
-            'pub_date'
+            '-pub_date'
         )
 
-    paginator = Paginator(blogs, 10)
+    paginator = Paginator(blogs, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

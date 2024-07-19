@@ -27,16 +27,16 @@
                 {% for blog in page_obj %}
                 <div class="vs-blog blog-single has-post-thumbnail">
                     <div class="blog-img">
-                        <a href="{% url 'blog:blog_details' blog.slug %}"><img src="{{ blog.main_image.url }}" alt="Blog Image"></a>
+                        <a href="{{ blog.get_absolute_url }}"><img src="{{ blog.main_image.url }}" alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
-                            <a href="{% url 'blog:blog_details' blog.slug %}"><i class="far fa-calendar-alt"></i>{{ blog.pub_date }}</a>
-                            <a href="{% url 'blog:blog_details' blog.slug %}">Категория: {{ blog.category.name }}</a>
+                            <a href="{{ blog.get_absolute_url }}"><i class="far fa-calendar-alt"></i>{{ blog.pub_date }}</a>
+                            <a href="{{ blog.get_absolute_url }}">Категория: {{ blog.category.name }}</a>
                         </div>
-                        <h2 class="blog-title"><a href="{% url 'blog:blog_details' blog.slug %}">{{ blog.title }}</a></h2>
+                        <h2 class="blog-title"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h2>
                         <p class="blog-text">{{ blog.text|truncatechars:300|safe }}</p>
-                        <a href="{% url 'blog:blog_details' blog.slug %}" class="vs-btn style2">Подробнее</a>
+                        <a href="{{ blog.get_absolute_url }}" class="vs-btn style2">Подробнее</a>
                     </div>
                 </div>
                 {% endfor %}

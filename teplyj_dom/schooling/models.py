@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.text import slugify
 from phonenumber_field.modelfields import PhoneNumberField
 from django_prose_editor.fields import ProseEditorField
@@ -85,6 +86,12 @@ class Project(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse(
+            'schooling:project_details',
+            kwargs={'project_slug': self.slug}
+        )
 
 
 class ProjectImage(models.Model):

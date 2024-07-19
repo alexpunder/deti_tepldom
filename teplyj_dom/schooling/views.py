@@ -44,7 +44,7 @@ def index(request):
 class ProjectsListView(ListView):
     queryset = Project.objects.all()
     template_name = 'schooling_pages/projects_list.html'
-    paginate_by = 1
+    paginate_by = 10
 
 
 def projects(request):
