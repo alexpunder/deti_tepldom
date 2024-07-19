@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+  static:
+  media:
+
+services:
+  backend:
+    image: alexpunder/teplyj_dom_backend:latest
+    restart: always
+    env_file: .env
+    volumes:
+      - static:/static
+      - media:/app/media
+
+  nginx:
+    image: alexpunder/teplyj_dom_nginx:latest
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - static:/static
+      - media:/app/media
+    depends_on:
+      - backend

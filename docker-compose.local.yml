@@ -1,0 +1,23 @@
+version: '3'
+
+volumes:
+  static:
+  media:
+
+services:
+  backend:
+    build: ./teplyj_dom/
+    env_file: .env
+    volumes:
+      - static:/static
+      - media:/app/media
+
+  nginx:
+    build: ./nginx/
+    ports:
+      - 8080:80
+    volumes:
+      - static:/static
+      - media:/app/media
+    depends_on:
+      - backend
