@@ -149,3 +149,20 @@ class UsefullLink(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Question(models.Model):
+    que = models.CharField(
+        max_length=255,
+        verbose_name='Вопрос',
+    )
+    answ = ProseEditorField(
+        verbose_name='Ответ',
+    )
+
+    class Meta:
+        verbose_name = 'Вопрос'
+        verbose_name_plural = 'Вопросы'
+
+    def __str__(self):
+        return self.que

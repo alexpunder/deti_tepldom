@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import (
-    AboutItem, Document, OurTeam, UsefullLink, MassMedia, Charity
+    AboutItem, Document, OurTeam, UsefullLink, MassMedia, Charity, Question
 )
 
 
@@ -45,3 +45,8 @@ class UsefullLinkAdmin(admin.ModelAdmin):
     list_display = (
         'name', 'link',
     )
+
+
+@admin.register(Question)
+class QuestionAdmin(admin.ModelAdmin):
+    pass

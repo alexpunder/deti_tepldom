@@ -8,7 +8,7 @@ from schooling.models import Project
 from schooling.forms import SendQuestionForm
 from schooling.utils import send_telegram_message
 from .models import (
-    AboutItem, OurTeam, Document, UsefullLink, MassMedia, Charity,
+    AboutItem, OurTeam, Document, UsefullLink, MassMedia, Charity, Question
 )
 from .filters import SearchBlogFilter, SearchProjectFilter
 
@@ -103,9 +103,13 @@ def charity(request):
 
 
 def faq(request):
+    questions = Question.objects.order_by('id')
     return render(
         request,
-        'support_pages/faq.html'
+        'support_pages/faq.html',
+        context={
+            'questions': questions,
+        }
     )
 
 
