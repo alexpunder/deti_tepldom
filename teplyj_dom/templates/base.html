@@ -1,7 +1,8 @@
 {% load static %}
 
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="ru">
+<html prefix="og: http://ogp.me/ns#" prefix="og: http://ogp.me/ns#">
 
 <head>
   <meta charset="utf-8">
@@ -11,37 +12,27 @@
   <meta name="description" content="Теплый дом - автономная некоммерческая организация социального обслуживания населения.">
   <meta name="robots" content="INDEX,FOLLOW">
 
-  <!-- Mobile Specific Metas -->
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://deti-tepldom.ddns.net/" />
+  <meta property="og:title" content="Теплый дом" />
+  <meta property="og:description" content="Автономная некоммерческая организация социального обслуживания населения." />
+  <meta property="og:image" content="https://deti-tepldom.ddns.net/static/img/logo.png" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Favicons - Place favicon.ico in the root directory -->
-  <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
-  <link rel="icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
+  <link rel="shortcut icon" href="{% static "favicons/favicon.ico" %}" type="image/x-icon">
+  <link rel="icon" href="{% static "favicons/favicon.ico" %}" type="image/x-icon">
 
-  <!--==============================
-  Google Fonts
-============================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 
-
-  <!--==============================
-    All CSS File
-============================== -->
-  
-  <!-- Bootstrap -->
   <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-  <!-- <link rel="stylesheet" href="{% static "css/app.min.css"> -->
-  <!-- Fontawesome Icon -->
   <link rel="stylesheet" href="{% static "css/fontawesome.min.css" %}">
-  <!-- Layerslider -->
   <link rel="stylesheet" href="{% static "css/layerslider.min.css" %}">
-  <!-- Magnific Popup -->
   <link rel="stylesheet" href="{% static "css/magnific-popup.min.css" %}">
-  <!-- Slick Slider -->
   <link rel="stylesheet" href="{% static "css/slick.min.css" %}">
-  <!-- Theme Custom CSS -->
   <link rel="stylesheet" href="{% static "css/style.css" %}">
   <link rel="stylesheet" href="{% static 'layerslider/skins/v6/skin.css' %}">
   
@@ -74,32 +65,16 @@
 
   <a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
 
-  <!--********************************
-    Code End  Here 
-******************************** -->
-
-  <!--==============================
-      All Js File
-  ============================== -->
-  <!-- Jquery -->
   <script src="{% static "js/vendor/jquery-3.6.0.min.js" %}"></script>
-  <!-- Slick Slider -->
   <script src="{% static "js/slick.min.js" %}"></script>
-  <!-- <script src="{% static "js/app.min.js"></script> -->
-  <!-- Layerslider -->
   <script src="{% static "js/layerslider.utils.js" %}"></script>
   <script src="{% static "js/layerslider.transitions.js" %}"></script>
   <script src="{% static "js/layerslider.kreaturamedia.jquery.js" %}"></script>
-  <!-- jquery ui -->
   <script src="{% static "js/jquery-ui.min.js" %}"></script>
-  <!-- Bootstrap -->
   <script src="{% static "js/bootstrap.min.js" %}"></script>
-  <!-- Magnific Popup -->
   <script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
-  <!-- Isotope Filter -->
   <script src="{% static "js/imagesloaded.pkgd.min.js" %}"></script>
   <script src="{% static "js/isotope.pkgd.min.js" %}"></script>
-  <!-- Main Js File -->
   <script src="{% static "js/main.js" %}"></script>
 
 </body>

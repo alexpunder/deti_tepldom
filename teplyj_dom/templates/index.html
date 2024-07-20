@@ -8,7 +8,7 @@
     <div class="vs-hero-carousel" data-height="1050" data-container="1900" data-slidertype="responsive" data-globalbgcolor="#2DA0A4">
         <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.2;">
             <img width="1920" height="295" src="{% static "img/hero/h-s-2-2.png" %}" class="ls-l ls-img-layer" alt="bg" decoding="async" style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:775px; left:-10px; -webkit-background-clip:border-box;" data-ls="static:forever;">
-            <img width="708" height="710" src="{% static "img/hero/hero-2-1.png" %}" class="ls-l ls-hide-phone ls-img-layer" alt="bg" decoding="async" style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:123px; left:830px; -webkit-background-clip:border-box;" data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
+            <img width="708" height="710" src="{% static "img/index/header.jpeg" %}" class="ls-l ls-hide-phone ls-img-layer" alt="bg" decoding="async" style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:123px; left:830px; -webkit-background-clip:border-box;" data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
             <img width="552" height="616" src="{% static "img/hero/h-s-2-1.png" %}" class="ls-l ls-hide-phone ls-img-layer" alt="bg" decoding="async" style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:170px; left:1171px; -webkit-background-clip:border-box;" data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
             <h1 style="font-size:70px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:70px; font-weight:600; left:310px; top:305px; -webkit-background-clip:border-box;" class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer" data-ls="offsetxin:-100; easingin:easeOutQuint;">
                 
@@ -41,7 +41,7 @@
             <h1 style="font-size:110px; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; color:#ffffff; font-family:'Fredoka', sans-serif; line-height:110px; font-weight:600; left:100px; top:380px; -webkit-background-clip:border-box;" class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" data-ls="offsetxin:-100; delayin:600; easingin:easeOutQuint;">
                 Теплый дом
             </h1>
-            <img width="708" height="710" src="{% static "img/hero/hero-2-1.png" %}" class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async" style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:47px; left:1003px; -webkit-background-clip:border-box;" data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
+            <img width="708" height="710" src="{% static "img/index/header.jpeg" %}" class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async" style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:47px; left:1003px; -webkit-background-clip:border-box;" data-ls="parallax:true; parallaxlevel:4; parallaxevent:cursor;">
             <img width="552" height="616" src="{% static "img/hero/h-s-2-1.png" %}" class="ls-l ls-hide-desktop ls-hide-tablet ls-img-layer" alt="bg" decoding="async" style="font-size:36px; color:#000; stroke:#000; stroke-width:0px; text-align:left; font-style:normal; text-decoration:none; text-transform:none; font-weight:400; letter-spacing:0px; background-position:0% 0%; background-repeat:no-repeat; background-clip:border-box; overflow:visible; top:76px; left:1340px; -webkit-background-clip:border-box;" data-ls="parallax:true; parallaxlevel:3; parallaxevent:cursor;">
         </div>
     </div>
@@ -51,7 +51,7 @@
     <div class="container">
         <div class="img-box4">
             <div class="img-1 mega-hover">
-                <img src="{% static "img/index/main_cut.jpg" %}" alt="about">
+                <img src="{% static "img/index/main_cut.jpg" %}" alt="about" loading="lazy">
             </div>
         </div>
     </div>
@@ -79,25 +79,11 @@
                         <div class="service-shape1"></div>
                         <div class="service-shape2"></div>
                         <div class="service-shape3"></div>
-                        <img src="{% static "img/icon/sr-2-1.svg" %}" alt="icon">
+                        <img src="{% static "img/icon/sr-2-4.svg" %}" alt="icon">
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">Социально – педагогическое</h3>
-                        <p class="service-text">Нужен ли какой-то текст?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-style2">
-                    <div class="service-icon">
-                        <div class="service-shape1"></div>
-                        <div class="service-shape2"></div>
-                        <div class="service-shape3"></div>
-                        <img src="{% static "img/icon/sr-2-2.svg" %}" alt="icon">
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Эколого – биологическое</h3>
-                        <p class="service-text">Нужен ли какой-то текст?</p>
+                        <h3 class="service-title">Социально – психологические</h3>
+                        <p class="service-text">Оказание помощи в коррекции психологического состояния для адаптации в социальной среде, в том числе оказание психологической помощи.</p>
                     </div>
                 </div>
             </div>
@@ -110,22 +96,8 @@
                         <img src="{% static "img/icon/sr-2-3.svg" %}" alt="icon">
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">Художественно – эстетическое</h3>
-                        <p class="service-text">Нужен ли какой-то текст?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-style2">
-                    <div class="service-icon">
-                        <div class="service-shape1"></div>
-                        <div class="service-shape2"></div>
-                        <div class="service-shape3"></div>
-                        <img src="{% static "img/icon/sr-2-4.svg" %}" alt="icon">
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Психологическое</h3>
-                        <p class="service-text">Нужен ли какой-то текст?</p>
+                        <h3 class="service-title">Социально – педагогические</h3>
+                        <p class="service-text">Профилактика отклонений в поведении и развитии личности, формирование позитивных интересов (в том числе в сфере досуга), организация досуга.</p>
                     </div>
                 </div>
             </div>
@@ -138,22 +110,8 @@
                         <img src="{% static "img/icon/sr-2-5.svg" %}" alt="icon">
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">Интелектуальное</h3>
-                        <p class="service-text">Нужен ли какой-то текст?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-style2">
-                    <div class="service-icon">
-                        <div class="service-shape1"></div>
-                        <div class="service-shape2"></div>
-                        <div class="service-shape3"></div>
-                        <img src="{% static "img/icon/sr-2-6.svg" %}" alt="icon">
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Культурологическое</h3>
-                        <p class="service-text">Нужен ли какой-то текст?</p>
+                        <h3 class="service-title">Социально – правовые</h3>
+                        <p class="service-text">Оказание помощи в получении юридических услуг, в том числе бесплатно, в защите прав и законных интересов.</p>
                     </div>
                 </div>
             </div>
@@ -172,8 +130,8 @@
         <div class="row">
             <div class="col-xl-auto col-xxl-6">
                 <div class="img-box6">
-                    <div class="img-1 mega-hover"><img src="{% static "img/about/con-1-1.jpg" %}" alt="image"></div>
-                    <div class="img-2 mega-hover"><img src="{% static "img/about/con-1-2.jpg" %}" alt="image"></div>
+                    <div class="img-1 mega-hover"><img src="{% static "img/index/img_form.jpg" %}" alt="image" loading="lazy"></div>
+                    <div class="img-2 mega-hover"><img src="{% static "img/index/img_forms.jpg" %}" alt="image" loading="lazy"></div>
                 </div>
             </div>
             <div class="col-xl col-xxl-6 align-self-center">
@@ -240,7 +198,7 @@
             <div>
                 <div class="img-box7">
                     <div class="img-1 mega-hover">
-                        <img src="{{ image.image.url }}" alt="about">
+                        <img src="{{ image.image.url }}" alt="about" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -250,7 +208,7 @@
             {% for image in images %}
             <div class="col-auto">
                 <div class="thumb-style2">
-                    <img src="{{ image.image.url }}" alt="gallery">
+                    <img src="{{ image.image.url }}" alt="gallery" loading="lazy">
                 </div>
             </div>
             {% endfor %}

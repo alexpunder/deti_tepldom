@@ -24,42 +24,34 @@ class Charity(models.Model):
     full_name = models.CharField(
         max_length=255,
         verbose_name='Полное наименование банка',
-        help_text=(
-            'Фирменное (полное официальное) наименование '
-            'банка на русском языке.'
-        ),
     )
-    short_name = models.CharField(
+    for_who = models.CharField(
         max_length=255,
-        verbose_name='Сокращенное наименование банка',
-        help_text=(
-            'Сокращенное фирменное наименование '
-            'банка на русском языке.'
-        ),
+        verbose_name='Наименование получателя платежа',
     )
-    address = models.CharField(
+    kpp = models.CharField(
         max_length=255,
-        verbose_name='Юридический адрес',
+        verbose_name='КПП',
     )
-    mail_address = models.CharField(
+    inn = models.CharField(
         max_length=255,
-        verbose_name='Почтовый адрес',
+        verbose_name='ИНН налогового органа',
     )
-    correspondent = models.CharField(
+    okato = models.CharField(
         max_length=255,
-        verbose_name='Корр. счет',
+        verbose_name='Код ОКАТО',
     )
     checking = models.CharField(
         max_length=255,
-        verbose_name='Расчетный счет',
+        verbose_name='Номер счета получателя платежа',
     )
     bik = models.CharField(
         max_length=255,
         verbose_name='БИК',
     )
-    inn = models.CharField(
+    correspondent = models.CharField(
         max_length=255,
-        verbose_name='ИНН / КПП',
+        verbose_name='Корр. счет',
     )
 
     class Meta:
@@ -67,7 +59,7 @@ class Charity(models.Model):
         verbose_name_plural = 'Реквизиты поддержки'
 
     def __str__(self):
-        return self.short_name
+        return self.full_name
 
 
 class Document(models.Model):

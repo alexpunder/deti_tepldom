@@ -17,7 +17,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 
 INTERNAL_IPS = ['localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['deti-tepldom.ddns.net']
+CSRF_TRUSTED_ORIGINS = ['https://deti-tepldom.ddns.net']
 
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')

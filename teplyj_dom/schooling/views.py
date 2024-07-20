@@ -42,7 +42,7 @@ def index(request):
 
 
 class ProjectsListView(ListView):
-    queryset = Project.objects.all()
+    queryset = Project.objects.order_by('id')
     template_name = 'schooling_pages/projects_list.html'
     paginate_by = 10
 

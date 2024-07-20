@@ -22,7 +22,7 @@ class DocumentAdmin(admin.ModelAdmin):
 @admin.register(Charity)
 class CharityAdmin(admin.ModelAdmin):
     list_display = (
-        'short_name',
+        'full_name',
     )
 
 
