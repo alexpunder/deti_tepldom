@@ -1,9 +1,7 @@
 from django.urls import path
 
-from .views import (
-    charity, faq, about, usefull_links, contacts, team, documents,
-    mass_media, search,
-)
+from .views import (about, charity, contacts, documents, faq, mass_media,
+                    search, team, usefull_links)
 
 app_name = 'support'
 

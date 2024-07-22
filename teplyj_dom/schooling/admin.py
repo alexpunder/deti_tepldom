@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group, User
+from django.utils.text import Truncator
 
-from .models import SendQuestion, Project, ProjectImage, MainGallery
+from .models import MainGallery, Project, ProjectImage, SendQuestion
 
 admin.site.unregister(Group)
 admin.site.unregister(User)
@@ -27,7 +28,7 @@ class ProjectAdmin(admin.ModelAdmin):
 @admin.register(SendQuestion)
 class SendQuestionAdmin(admin.ModelAdmin):
     list_display = (
-        'is_complete', 'name', 'phone', 'email', 'subject',
+        'is_complete', 'name', 'phone', 'email', 'short_subject', 'datetime_to'
     )
     list_display_links = (
         'name', 'phone', 'email',
@@ -44,6 +45,9 @@ class SendQuestionAdmin(admin.ModelAdmin):
     readonly_fields = (
         'name', 'phone', 'subject', 'email', 'text',
     )
+
+    def short_subject(self, obj):
+        return Truncator(obj.subject).words(20)
 
     def has_add_permission(self, request):
         return False

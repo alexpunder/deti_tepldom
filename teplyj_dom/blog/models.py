@@ -39,6 +39,7 @@ class Blog(models.Model):
     )
 
     class Meta:
+        ordering = ['-pub_date', '-id']
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
 

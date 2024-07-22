@@ -1,15 +1,24 @@
 from asgiref.sync import async_to_sync
-from django.shortcuts import get_object_or_404, render
 from django.contrib import messages
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView
 
-from .models import Project, MainGallery
+from teplyj_dom.constants import MAIN_GALLERY_LIMIT, PROJECTS_LIST_PAGINATION
+
 from .forms import SendQuestionForm
+from .models import MainGallery, Project
 from .utils import send_telegram_message
 
 
 def index(request):
-    images = MainGallery.objects.all()
+    """
+    Главная страница сайта.
+
+    Отображение изображений в галереи из модели MainGallery.
+    Форма для подачи запросов с последующей обработкой и отправкой
+    через Телеграм.
+    """
+    images = MainGallery.objects.all()[:MAIN_GALLERY_LIMIT]
     form = SendQuestionForm()
     if request.method == 'POST':
         form = SendQuestionForm(request.POST)
@@ -42,23 +51,14 @@ def index(request):
 
 
 class ProjectsListView(ListView):
-    queryset = Project.objects.order_by('id')
+    """Страница со всеми проектами организации."""
+    queryset = Project.objects.all()
     template_name = 'schooling_pages/projects_list.html'
-    paginate_by = 10
-
-
-def projects(request):
-    project_items = Project.objects.all()
-    return render(
-        request,
-        'schooling_pages/projects_list.html',
-        context={
-            'project_items': project_items,
-        }
-    )
+    paginate_by = PROJECTS_LIST_PAGINATION
 
 
 def project_details(request, project_slug):
+    """Детальная страница проекта."""
     project = get_object_or_404(Project, slug=project_slug)
     project_images = project.images.all()
     return render(

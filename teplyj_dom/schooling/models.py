@@ -1,8 +1,8 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-from phonenumber_field.modelfields import PhoneNumberField
 from django_prose_editor.fields import ProseEditorField
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class SendQuestion(models.Model):
@@ -12,6 +12,10 @@ class SendQuestion(models.Model):
         choices=(('Да', 'Да'), ('Нет', 'Нет')),
         verbose_name='Обработан?',
         help_text='Если заявка обработа, выберите "Да".',
+    )
+    datetime_to = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Время и дата заявки',
     )
     name = models.CharField(
         max_length=255,
@@ -76,6 +80,7 @@ class Project(models.Model):
     )
 
     class Meta:
+        ordering = ['-id']
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
 

@@ -1,8 +1,7 @@
 from django.contrib import admin
 
-from .models import (
-    AboutItem, Document, OurTeam, UsefullLink, MassMedia, Charity, Question
-)
+from .models import (AboutItem, Charity, Document, MassMedia, OurTeam,
+                     Question, UsefullLink)
 
 
 @admin.register(AboutItem)

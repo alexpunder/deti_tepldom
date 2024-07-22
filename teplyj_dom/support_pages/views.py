@@ -1,52 +1,25 @@
 from asgiref.sync import async_to_sync
-from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-
-from blog.models import Blog
-from schooling.models import Project
+from django.shortcuts import render
 from schooling.forms import SendQuestionForm
 from schooling.utils import send_telegram_message
-from .models import (
-    AboutItem, OurTeam, Document, UsefullLink, MassMedia, Charity, Question
-)
-from .filters import SearchBlogFilter, SearchProjectFilter
+
+from .services import search_filter
+from .models import (AboutItem, Charity, Document, MassMedia, OurTeam,
+                     Question, UsefullLink)
 
 
 def search(request):
+    """Обработчик поиска в заголовке страницы."""
     query = request.GET.get('search')
 
-    if not query or query.strip() == '':
-        messages.warning(
-            request,
-            message=(
-                'Пожалуйста, введите корректный запрос для поиска.'
-            )
-        )
+    result = search_filter(request=request, query=query)
+
+    if not result:
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-    search_blogs = SearchBlogFilter(
-        request.GET, queryset=Blog.objects.all()
-    )
-    search_projects = SearchProjectFilter(
-        request.GET, queryset=Project.objects.all()
-    )
-    total_results = search_blogs.qs.count() + search_projects.qs.count()
-
-    if not total_results:
-        messages.warning(
-            request,
-            message=(
-                'К сожалению, ничего найти не удалось... '
-                'Попробуйте изменить свой запрос.'
-            )
-        )
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-
-    messages.success(
-        request,
-        message=f'Найдено совпадений: {total_results}'
-    )
+    total_results, search_blogs, search_projects = result
 
     return render(
         request,
@@ -54,8 +27,8 @@ def search(request):
         context={
             'query': query,
             'total_results': total_results,
-            'blogs': search_blogs.qs,
-            'projects': search_projects.qs,
+            'blogs': search_blogs,
+            'projects': search_projects,
         }
     )
 

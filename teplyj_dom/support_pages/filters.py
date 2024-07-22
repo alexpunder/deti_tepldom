@@ -1,7 +1,6 @@
 import django_filters
-from django.db.models import Q
-
 from blog.models import Blog
+from django.db.models import Q
 from schooling.models import Project
 
 
@@ -33,17 +32,3 @@ class SearchProjectFilter(django_filters.FilterSet):
             | Q(short_description__icontains=value)
             | Q(text__icontains=value)
         )
-
-
-# class SearchBlogFilter(FilterSet):
-
-#     class Meta:
-#         model = Blog
-#         fields = ('title', 'text', 'category__name')
-
-
-# class SearchProjectFilter(FilterSet):
-
-#     class Meta:
-#         model = Project
-#         fields = ('title', 'short_description', 'text')

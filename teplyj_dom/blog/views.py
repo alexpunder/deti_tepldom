@@ -1,51 +1,31 @@
-from django.db.models import Q
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
 
+from teplyj_dom.constants import BLOG_LIST_PAGINATION
+
 from .models import Blog, Category
+from .services import get_filtered_blogs
 
 
 def blog_list(request):
+    """
+    Страница со списком всех новостей.
+
+    Фильтрация по категории, тегу или параметру поиска: получение GET-запроса
+    и дальнейшая передача в функцию get_filtered_blogs.
+    """
     categories = Category.objects.all()
     category_slug = request.GET.get('category_slug')
-    news_search = request.GET.get('news_search')
+    search = request.GET.get('news_search')
     tag = request.GET.get('tag')
 
-    if category_slug:
-        blogs = Blog.objects.filter(
-            category__slug=category_slug
-        ).select_related(
-            'category'
-        ).order_by(
-            'pub_date'
-        )
+    blogs = get_filtered_blogs(
+        category=category_slug,
+        search=search,
+        tag=tag,
+    )
 
-    elif news_search:
-        blogs = Blog.objects.filter(
-            Q(title__icontains=news_search)
-            | Q(text__icontains=news_search)
-            | Q(category__name__icontains=news_search)
-        ).select_related(
-            'category'
-        ).order_by(
-            'pub_date'
-        )
-
-    elif tag:
-        blogs = Blog.objects.filter(
-            tags__slug=tag
-        ).prefetch_related(
-            'tags'
-        ).order_by(
-            'pub_date'
-        )
-
-    else:
-        blogs = Blog.objects.order_by(
-            '-pub_date'
-        )
-
-    paginator = Paginator(blogs, 5)
+    paginator = Paginator(blogs, BLOG_LIST_PAGINATION)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -60,6 +40,7 @@ def blog_list(request):
 
 
 def blog_details(request, blog_slug):
+    """Детальная страница новости."""
     blog = get_object_or_404(Blog, slug=blog_slug)
     tags = blog.tags.all()
     return render(
