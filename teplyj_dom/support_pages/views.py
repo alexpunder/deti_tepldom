@@ -76,7 +76,7 @@ def charity(request):
 
 
 def faq(request):
-    questions = Question.objects.order_by('id')
+    questions = Question.objects.all()
     return render(
         request,
         'support_pages/faq.html',

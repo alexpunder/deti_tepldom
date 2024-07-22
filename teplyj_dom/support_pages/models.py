@@ -153,6 +153,7 @@ class Question(models.Model):
     )
 
     class Meta:
+        ordering = ['id']
         verbose_name = 'Вопрос'
         verbose_name_plural = 'Вопросы'
 
