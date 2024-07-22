@@ -4,6 +4,21 @@
 
 {% block content %}
 
-
+<section class="vs-error-wrapper space-top space-extra-bottom" data-bg-src="{% static "img/bg/error-bg.png" %}">
+    <div class="container">
+        <div class="row gx-100 text-center text-lg-start">
+            <div class="col-lg-5 col-xl-auto">
+                <img src="{% static "img/shape/error-shape.svg" %}" alt="shape">
+            </div>
+            <div class="col-lg-7 col-xl">
+                <div class="error-content">
+                    <h1 class="error-number">404</h1>
+                    <h2 class="error-title">Ой, страница не найдена...</h2>
+                    <a href="{% url 'schooling:index' %}" class="vs-btn style4">Вернуться на главную</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

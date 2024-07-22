@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="vs-error-wrapper space-top space-extra-bottom" data-bg-src="{% static "img/bg/bg-h-1-1.jpg" %}">
+    <div class="container">
+        <div class="row gx-100 text-center text-lg-start">
+            <div class="col-lg-6 col-xl-auto">
+            </div>
+            <div class="col-lg-6 col-xl">
+                <div class="error-content">
+                    <h1 class="error-number">Класс</h1>
+                    <p class="error-text">Ваше сообщение зарегистрировано.</p>
+                    <p class="error-text">В ближайшее время наши специалисты ответят на все вопросы.</p>
+                    <a href="{% url 'schooling:index' %}" class="vs-btn style4">Вернуться на главную</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

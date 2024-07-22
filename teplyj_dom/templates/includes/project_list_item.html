@@ -1,0 +1,14 @@
+{% load static %}
+
+<div class="vs-blog blog-single has-post-thumbnail">
+    <div class="blog-content">
+        <div class="blog-meta">
+            <a href="{{ item.get_absolute_url }}"><i class="far fa-calendar-alt"></i>
+                {{ item.start_date|date:"Y" }} – {% if item.end_date %}{{ item.end_date|date:"Y" }} года{% else %}По настоящее время{% endif %}
+            </a>
+        </div>
+        <h2 class="blog-title"><a href="{{ item.get_absolute_url }}">{{ item.title }}</a></h2>
+        <p class="blog-text">{{ item.short_description|safe }}</p>
+        <a href="{{ item.get_absolute_url }}" class="vs-btn style2">Подробнее</a>
+    </div>
+</div>

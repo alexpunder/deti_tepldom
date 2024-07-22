@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 from django.core.management.utils import get_random_secret_key
+from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,6 +17,21 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
 
 INTERNAL_IPS = ['localhost', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS = ['https://deti-tepldom.ddns.net']
+
+
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID')
+
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -29,6 +45,11 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'schooling.apps.SchoolingConfig',
     'support_pages.apps.SupportPagesConfig',
+
+    # utils
+    'django_prose_editor',
+    'phonenumber_field',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'blog.context_processors.latest_news',
             ],
         },
     },
@@ -89,7 +111,11 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 LANGUAGE_CODE = 'ru-RU'
+PHONENUMBER_DB_FORMAT = 'NATIONAL'
+PHONENUMBER_DEFAULT_REGION = 'RU'
+PHONENUMBER_DEFAULT_FORMAT = 'NATIONAL'
 
+DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
@@ -100,5 +126,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
