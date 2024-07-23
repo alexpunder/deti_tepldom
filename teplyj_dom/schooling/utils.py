@@ -1,7 +1,7 @@
-# from telegram import Bot
+from telegram import Bot
 from django.conf import settings
 
-# bot = Bot(token=settings.BOT_TOKEN)
+bot = Bot(token=settings.BOT_TOKEN)
 
 
 async def send_telegram_message(**kwargs):
