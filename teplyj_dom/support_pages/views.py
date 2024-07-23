@@ -34,6 +34,10 @@ def search(request):
 
 
 def contacts(request):
+    """
+    Страница контактов. Содержит форму для отправки вопросов администратору
+    через телеграм-бота в группу.
+    """
     form = SendQuestionForm()
     if request.method == 'POST':
         form = SendQuestionForm(request.POST)
@@ -65,6 +69,7 @@ def contacts(request):
 
 
 def charity(request):
+    """Страница реквизитов организации для пожертвований."""
     charity_data = Charity.objects.all()
     return render(
         request,
@@ -76,6 +81,7 @@ def charity(request):
 
 
 def faq(request):
+    """Страница с ответами на вопросы."""
     questions = Question.objects.all()
     return render(
         request,
@@ -87,6 +93,7 @@ def faq(request):
 
 
 def about(request):
+    """Страница с описанием и информацией о деятельности организации."""
     table_items = AboutItem.objects.all()
     return render(
         request,
@@ -98,6 +105,7 @@ def about(request):
 
 
 def documents(request):
+    """Страница с правовыми и прочими документами организации."""
     documents = Document.objects.all()
     return render(
         request,
@@ -109,6 +117,7 @@ def documents(request):
 
 
 def usefull_links(request):
+    """Страница с ссылками на административные ресурсы."""
     usefull_links = UsefullLink.objects.all()
     return render(
         request,
@@ -118,6 +127,7 @@ def usefull_links(request):
 
 
 def mass_media(request):
+    """Страница с ссылками на статьи в СМИ."""
     mass_media = MassMedia.objects.all()
     return render(
         request,
@@ -129,6 +139,7 @@ def mass_media(request):
 
 
 def team(request):
+    """Страница с персоналом организации."""
     teammates = OurTeam.objects.all()
     return render(
         request,
@@ -138,6 +149,7 @@ def team(request):
 
 
 def page_not_found(request, exception):
+    """Обработчик страницы ошибки 404."""
     return render(
         request,
         'support_pages/404.html',
