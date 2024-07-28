@@ -17,7 +17,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
 
 INTERNAL_IPS = ['localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS', 'https://127.0.0.1:8000')]
+CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS', 'http://127.0.0.1:8000')]
 
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
