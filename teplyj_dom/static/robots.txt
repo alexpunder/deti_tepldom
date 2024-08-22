@@ -1,0 +1,5 @@
+user-agent: Yandex
+Disallow: /admin/
+
+user-agent: *
+Disallow: /admin/

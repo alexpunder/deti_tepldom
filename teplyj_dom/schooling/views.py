@@ -23,8 +23,10 @@ def index(request):
     if request.method == 'POST':
         form = SendQuestionForm(request.POST)
         if form.is_valid():
-            form.save()
-            async_to_sync(send_telegram_message)(**form.cleaned_data)
+            if not form.cleaned_data.get('hidden_field'):
+                form.save()
+                async_to_sync(send_telegram_message)(**form.cleaned_data)
+
             messages.success(
                 request,
                 'Обращение отправлено!'
@@ -34,11 +36,19 @@ def index(request):
                 'schooling_pages/success.html'
             )
         else:
-            model = form._meta.model
             for field, errors in form.errors.items():
-                field_verbose_name = model._meta.get_field(field).verbose_name
-                for error in errors:
-                    messages.error(request, f'{field_verbose_name}: {error}')
+                if field != 'reCAPTCHA':
+                    field_verbose_name = (
+                        form._meta.model._meta.get_field(field).verbose_name
+                    )
+                    for error in errors:
+                        messages.error(
+                            request, f'{field_verbose_name}: {error}'
+                        )
+                else:
+                    messages.error(
+                        request, f'{field}: Ошибка проверки'
+                    )
 
     return render(
         request,
