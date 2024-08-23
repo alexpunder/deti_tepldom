@@ -7,7 +7,7 @@ from teplyj_dom.constants import MAIN_GALLERY_LIMIT, PROJECTS_LIST_PAGINATION
 
 from .forms import SendQuestionForm
 from .models import MainGallery, Project
-from .utils import send_telegram_message
+from .utils import send_telegram_message, generate_error_messages
 
 
 def index(request):
@@ -23,9 +23,8 @@ def index(request):
     if request.method == 'POST':
         form = SendQuestionForm(request.POST)
         if form.is_valid():
-            if not form.cleaned_data.get('hidden_field'):
-                form.save()
-                async_to_sync(send_telegram_message)(**form.cleaned_data)
+            form.save()
+            async_to_sync(send_telegram_message)(**form.cleaned_data)
 
             messages.success(
                 request,
@@ -36,19 +35,7 @@ def index(request):
                 'schooling_pages/success.html'
             )
         else:
-            for field, errors in form.errors.items():
-                if field != 'reCAPTCHA':
-                    field_verbose_name = (
-                        form._meta.model._meta.get_field(field).verbose_name
-                    )
-                    for error in errors:
-                        messages.error(
-                            request, f'{field_verbose_name}: {error}'
-                        )
-                else:
-                    messages.error(
-                        request, f'{field}: Ошибка проверки'
-                    )
+            generate_error_messages(request, form)
 
     return render(
         request,
