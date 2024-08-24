@@ -17,7 +17,7 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
 
 INTERNAL_IPS = ['localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS', 'https://127.0.0.1:8000')]
+CSRF_TRUSTED_ORIGINS = [os.getenv('CSRF_TRUSTED_ORIGINS', 'http://127.0.0.1:8000')]
 
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django_prose_editor',
     'phonenumber_field',
     'django_filters',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
@@ -85,11 +86,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'teplyj_dom.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('POSTGRES_DB', 'django'),
+        'USER': os.getenv('POSTGRES_USER', 'django'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', ''),
+        'HOST': os.getenv('DB_HOST', ''),
+        'PORT': os.getenv('DB_PORT', 5432),
     }
 }
 
@@ -131,3 +142,7 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+RECAPTCHA_PUBLIC_KEY = os.getenv('RECAPTCHA_PUBLIC_KEY')
+RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
+SILENCED_SYSTEM_CHECKS = ['django_recaptcha.recaptcha_test_key_error']

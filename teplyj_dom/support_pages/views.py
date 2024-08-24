@@ -8,6 +8,7 @@ from schooling.utils import send_telegram_message
 from .services import search_filter
 from .models import (AboutItem, Charity, Document, MassMedia, OurTeam,
                      Question, UsefullLink)
+from schooling.utils import generate_error_messages
 
 
 def search(request):
@@ -44,6 +45,7 @@ def contacts(request):
         if form.is_valid():
             form.save()
             async_to_sync(send_telegram_message)(**form.cleaned_data)
+
             messages.success(
                 request,
                 'Обращение отправлено!'
@@ -53,11 +55,7 @@ def contacts(request):
                 'schooling_pages/success.html'
             )
         else:
-            model = form._meta.model
-            for field, errors in form.errors.items():
-                field_verbose_name = model._meta.get_field(field).verbose_name
-                for error in errors:
-                    messages.error(request, f'{field_verbose_name}: {error}')
+            generate_error_messages(request, form)
 
     return render(
         request,

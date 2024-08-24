@@ -1,10 +1,16 @@
-version: '3'
-
 volumes:
   static:
   media:
+  pg_data:
 
 services:
+  db:
+    image: postgres:13.10
+    restart: always
+    env_file: .env
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
   backend:
     image: alexpunder/teplyj_dom_backend:latest
     restart: always
@@ -12,6 +18,8 @@ services:
     volumes:
       - static:/static
       - media:/app/media
+    depends_on:
+      - db
 
   nginx:
     image: alexpunder/teplyj_dom_nginx:latest
